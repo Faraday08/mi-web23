@@ -3,20 +3,20 @@ name: Deploy to Surge
 on:
   push:
     branches:
-      - main
+      - main  # o la rama desde donde quieres desplegar
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install Surge
         run: npm install -g surge
@@ -24,4 +24,5 @@ jobs:
       - name: Deploy to Surge
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        run: surge ./ --domain mi-web23-faraday.surge.sh --token $SURGE_TOKEN
+        run: |
+          surge . --domain tu-dominio.surge.sh
