@@ -25,4 +25,4 @@ jobs:
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         run: |
-          surge . --domain tu-dominio.surge.sh
+          surge . --domain mi-web23-faraday-ag.surge.sh
